@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum NetworkError: Error {
     case requestFailed(Error?)
@@ -26,4 +27,6 @@ protocol Service {
     @discardableResult
     func request<E: Request>(_ request: E, completion: @escaping (Result<E.ResponseType?, NetworkError>) -> Void) -> ServiceTask
     
+    @discardableResult
+    func downloadImage<E: Request>(_ request: E, completion: @escaping (Result<UIImage?, NetworkError>) -> Void) -> ServiceTask
 }
