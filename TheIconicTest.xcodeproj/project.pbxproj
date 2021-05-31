@@ -14,6 +14,7 @@
 		CA83967F26648A450070870D /* ShopModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83967E26648A450070870D /* ShopModel.swift */; };
 		CA83968426648ACB0070870D /* GenderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83968326648ACB0070870D /* GenderModel.swift */; };
 		CA83968926648B000070870D /* BranchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83968826648B000070870D /* BranchModel.swift */; };
+		CA83969F2664CBE60070870D /* RefreshStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83969E2664CBE60070870D /* RefreshStatus.swift */; };
 		CAA4ED1A266482FD00BF0F7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA4ED19266482FD00BF0F7A /* AppDelegate.swift */; };
 		CAA4ED1C266482FD00BF0F7A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA4ED1B266482FD00BF0F7A /* SceneDelegate.swift */; };
 		CAA4ED1E266482FD00BF0F7A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA4ED1D266482FD00BF0F7A /* ViewController.swift */; };
@@ -68,6 +69,7 @@
 		CA83967E26648A450070870D /* ShopModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopModel.swift; sourceTree = "<group>"; };
 		CA83968326648ACB0070870D /* GenderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderModel.swift; sourceTree = "<group>"; };
 		CA83968826648B000070870D /* BranchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchModel.swift; sourceTree = "<group>"; };
+		CA83969E2664CBE60070870D /* RefreshStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshStatus.swift; sourceTree = "<group>"; };
 		CAA4ED16266482FD00BF0F7A /* TheIconicTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheIconicTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAA4ED19266482FD00BF0F7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAA4ED1B266482FD00BF0F7A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -186,6 +188,14 @@
 			path = Shop;
 			sourceTree = "<group>";
 		};
+		CA83969A266494070070870D /* RefreshStatus */ = {
+			isa = PBXGroup;
+			children = (
+				CA83969E2664CBE60070870D /* RefreshStatus.swift */,
+			);
+			path = RefreshStatus;
+			sourceTree = "<group>";
+		};
 		CAA4ED0D266482FD00BF0F7A = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +285,7 @@
 		CAA4EDB82664893D00BF0F7A /* BaseModules */ = {
 			isa = PBXGroup;
 			children = (
+				CA83969A266494070070870D /* RefreshStatus */,
 				CAA4EDCA266489DC00BF0F7A /* ViewModel */,
 				CAA4EDB92664895200BF0F7A /* UIBase */,
 			);
@@ -580,6 +591,7 @@
 				CAA4ED1E266482FD00BF0F7A /* ViewController.swift in Sources */,
 				CAA4EDBB2664897B00BF0F7A /* BaseViewController.swift in Sources */,
 				CAA4ED61266482FD00BF0F7A /* Request.swift in Sources */,
+				CA83969F2664CBE60070870D /* RefreshStatus.swift in Sources */,
 				CAA4EDEB26648ABE00BF0F7A /* CatalogViewModel.swift in Sources */,
 				CA83968426648ACB0070870D /* GenderModel.swift in Sources */,
 				CAA4EDC32664899D00BF0F7A /* BaseNavigationController.swift in Sources */,

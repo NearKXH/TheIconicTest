@@ -13,12 +13,14 @@ struct CatalogNetwork: Request {
     
     typealias ResponseType = CatalogModel
     
+    static let pageSize = 30
+    
     let path: String = "v1/catalog/products"
     
     let queryItems: [String : String]?
     
     init(page: Int) {
-        queryItems = ["page_size": "30", "page": "\(min(page, 1))"]
+        queryItems = ["page_size": "\(CatalogNetwork.pageSize)", "page": "\(min(page, 1))"]
     }
 }
 
