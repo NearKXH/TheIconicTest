@@ -42,9 +42,9 @@ extension Reactive where Base: NetworkInterface {
     /// Rx Request
     /// - Parameter request: Request
     /// - Returns: Single<E.ResponseType?>
-    func request<E: Request>(_ request: E?) -> Single<E.ResponseType?> {
+    func request<E: Request>(_ request: E) -> Single<E.ResponseType?> {
         return Single.create { single in
-            let token = base.request(request!) { (result) in
+            let token = base.request(request) { (result) in
                 switch result {
                 case let .success(response):
                     single(.success(response))
@@ -62,9 +62,9 @@ extension Reactive where Base: NetworkInterface {
     /// Rx Download Image
     /// - Parameter request: Request
     /// - Returns: Single<UIImage?>
-    func downloadImage<E: Request>(_ request: E?) -> Single<UIImage?> {
+    func downloadImage<E: Request>(_ request: E) -> Single<UIImage?> {
         return Single.create { single in
-            let token = base.downloadImage(request!) { (result) in
+            let token = base.downloadImage(request) { (result) in
                 switch result {
                 case let .success(response):
                     single(.success(response))
