@@ -23,6 +23,9 @@
 		CAA4ED6E266482FD00BF0F7A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA4ED6D266482FD00BF0F7A /* Service.swift */; };
 		CAA4ED80266482FD00BF0F7A /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA4ED7F266482FD00BF0F7A /* NetworkService.swift */; };
 		CAA4ED88266482FD00BF0F7A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA4ED87266482FD00BF0F7A /* NetworkManager.swift */; };
+		CAA4EDBB2664897B00BF0F7A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA4EDBA2664897B00BF0F7A /* BaseViewController.swift */; };
+		CAA4EDC32664899D00BF0F7A /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA4EDC22664899D00BF0F7A /* BaseNavigationController.swift */; };
+		CAA4EDCC266489F000BF0F7A /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA4EDCB266489F000BF0F7A /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +72,9 @@
 		CAA4ED6D266482FD00BF0F7A /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		CAA4ED7F266482FD00BF0F7A /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		CAA4ED87266482FD00BF0F7A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		CAA4EDBA2664897B00BF0F7A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		CAA4EDC22664899D00BF0F7A /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		CAA4EDCB266489F000BF0F7A /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +149,7 @@
 		CAA4ED18266482FD00BF0F7A /* TheIconicTest */ = {
 			isa = PBXGroup;
 			children = (
+				CAA4EDB82664893D00BF0F7A /* BaseModules */,
 				CAA4ED5C266482FD00BF0F7A /* Service */,
 				CAA4ED19266482FD00BF0F7A /* AppDelegate.swift */,
 				CAA4ED1B266482FD00BF0F7A /* SceneDelegate.swift */,
@@ -200,6 +207,32 @@
 				CAA4ED7F266482FD00BF0F7A /* NetworkService.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		CAA4EDB82664893D00BF0F7A /* BaseModules */ = {
+			isa = PBXGroup;
+			children = (
+				CAA4EDCA266489DC00BF0F7A /* ViewModel */,
+				CAA4EDB92664895200BF0F7A /* UIBase */,
+			);
+			path = BaseModules;
+			sourceTree = "<group>";
+		};
+		CAA4EDB92664895200BF0F7A /* UIBase */ = {
+			isa = PBXGroup;
+			children = (
+				CAA4EDC22664899D00BF0F7A /* BaseNavigationController.swift */,
+				CAA4EDBA2664897B00BF0F7A /* BaseViewController.swift */,
+			);
+			path = UIBase;
+			sourceTree = "<group>";
+		};
+		CAA4EDCA266489DC00BF0F7A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CAA4EDCB266489F000BF0F7A /* ViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -422,9 +455,12 @@
 				CAA4ED6E266482FD00BF0F7A /* Service.swift in Sources */,
 				CAA4ED80266482FD00BF0F7A /* NetworkService.swift in Sources */,
 				CAA4ED1E266482FD00BF0F7A /* ViewController.swift in Sources */,
+				CAA4EDBB2664897B00BF0F7A /* BaseViewController.swift in Sources */,
 				CAA4ED61266482FD00BF0F7A /* Request.swift in Sources */,
+				CAA4EDC32664899D00BF0F7A /* BaseNavigationController.swift in Sources */,
 				CAA4ED1A266482FD00BF0F7A /* AppDelegate.swift in Sources */,
 				CAA4ED69266482FD00BF0F7A /* Response.swift in Sources */,
+				CAA4EDCC266489F000BF0F7A /* ViewModel.swift in Sources */,
 				CAA4ED1C266482FD00BF0F7A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
