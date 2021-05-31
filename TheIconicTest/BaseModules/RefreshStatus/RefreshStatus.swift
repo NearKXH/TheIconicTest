@@ -10,13 +10,13 @@ import Foundation
 enum RefreshBeginStatus {
     case none
     
-    case beingHeaderRefresh
-    case beingFooterRefresh
+    case header
+    case footer
 }
 
 enum RefreshEndStatus {
     case none
     
-    case endRefresh
-    case endRefreshWithNoMoreData
+    case normal
+    case noMoreData
 }

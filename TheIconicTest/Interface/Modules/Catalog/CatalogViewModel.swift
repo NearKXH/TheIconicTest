@@ -36,7 +36,7 @@ class CatalogViewModel: ViewModelProtocol {
         let dataSource = BehaviorRelay<[CatalogProductVMModel]>(value: [])
         let refresh = BehaviorRelay(value: RefreshEndStatus.none)
         
-        self.output = Output(dataSource: dataSource.asDriver(onErrorJustReturn: []), refresh: refresh.asDriver(onErrorJustReturn: .endRefresh))
+        self.output = Output(dataSource: dataSource.asDriver(onErrorJustReturn: []), refresh: refresh.asDriver(onErrorJustReturn: .normal))
         
         /// init finished
         let single = Single<[ProductModel]>.create { (single) -> Disposable in
@@ -51,30 +51,30 @@ class CatalogViewModel: ViewModelProtocol {
             }
         }).subscribe(onNext: { [unowned self] (products) in
             switch refreshBeginStatus {
-            case .beingHeaderRefresh:
+            case .header:
                 dataSource.accept(products)
-            case .beingFooterRefresh:
+            case .footer:
                 dataSource.accept(dataSource.value + products)
             case .none:
-                refresh.accept(.endRefresh)
+                refresh.accept(.normal)
                 return
             }
             
             page = page + 1
             refreshBeginStatus = .none
-            refresh.accept( products.count < CatalogNetwork.pageSize ? .endRefreshWithNoMoreData : .endRefresh)
+            refresh.accept( products.count < CatalogNetwork.pageSize ? .noMoreData : .normal)
             
         }).disposed(by: disposeBag)
 
         input.refresh.subscribe(onNext: { [unowned self] (refresh) in
             switch refresh {
-            case .beingHeaderRefresh:
+            case .header:
                 page = 0
-                refreshBeginStatus = .beingHeaderRefresh
+                refreshBeginStatus = .header
                 networkBehaviorRelay.accept(network.rx.catalog(page: self.page + 1))
-            case .beingFooterRefresh:
+            case .footer:
                 if refreshBeginStatus == .none {
-                    refreshBeginStatus = .beingFooterRefresh
+                    refreshBeginStatus = .footer
                     networkBehaviorRelay.accept(self.network.rx.catalog(page: self.page + 1))
                 }
             case .none:
