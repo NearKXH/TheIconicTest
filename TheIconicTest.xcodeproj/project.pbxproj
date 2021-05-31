@@ -11,6 +11,7 @@
 		733D203E6D5BA76F12BD5954 /* Pods_TheIconicTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F496EE300BA6D2399AF5639 /* Pods_TheIconicTest.framework */; };
 		CA7DA37826653ED7005E4E5A /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7DA37726653ED7005E4E5A /* BaseCollectionViewCell.swift */; };
 		CA7DA37D26653EF7005E4E5A /* CatalogCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7DA37C26653EF7005E4E5A /* CatalogCollectionViewCell.swift */; };
+		CA7DA3A32665CBEB005E4E5A /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7DA3A22665CBEB005E4E5A /* ColorExtension.swift */; };
 		CA83966F266484720070870D /* LinksModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83966E266484720070870D /* LinksModel.swift */; };
 		CA8396772664850C0070870D /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8396762664850C0070870D /* ProductModel.swift */; };
 		CA83967F26648A450070870D /* ShopModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA83967E26648A450070870D /* ShopModel.swift */; };
@@ -68,6 +69,7 @@
 		B617D761A29B05401DC56AC9 /* Pods-TheIconicTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheIconicTest.release.xcconfig"; path = "Target Support Files/Pods-TheIconicTest/Pods-TheIconicTest.release.xcconfig"; sourceTree = "<group>"; };
 		CA7DA37726653ED7005E4E5A /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		CA7DA37C26653EF7005E4E5A /* CatalogCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogCollectionViewCell.swift; sourceTree = "<group>"; };
+		CA7DA3A22665CBEB005E4E5A /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		CA83966E266484720070870D /* LinksModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksModel.swift; sourceTree = "<group>"; };
 		CA8396762664850C0070870D /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		CA83967E26648A450070870D /* ShopModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopModel.swift; sourceTree = "<group>"; };
@@ -150,6 +152,14 @@
 				38238A78018ED806B9DDEFF7 /* Pods_TheIconicTestTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CA7DA3A12665CBDB005E4E5A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CA7DA3A22665CBEB005E4E5A /* ColorExtension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		CA83966C266484400070870D /* Links */ = {
@@ -317,6 +327,7 @@
 		CAA4EDDA26648ABE00BF0F7A /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				CA7DA3A12665CBDB005E4E5A /* Extension */,
 				CAA4EDDB26648ABE00BF0F7A /* Modules */,
 			);
 			path = Interface;
@@ -606,6 +617,7 @@
 				CAA4ED1A266482FD00BF0F7A /* AppDelegate.swift in Sources */,
 				CAA4ED69266482FD00BF0F7A /* Response.swift in Sources */,
 				CAA4EDCC266489F000BF0F7A /* ViewModel.swift in Sources */,
+				CA7DA3A32665CBEB005E4E5A /* ColorExtension.swift in Sources */,
 				CAA4EDF126648ABE00BF0F7A /* ProductDetailViewController.swift in Sources */,
 				CAA4EDE626648ABE00BF0F7A /* CatalogProductVMModel.swift in Sources */,
 				CA83967F26648A450070870D /* ShopModel.swift in Sources */,
