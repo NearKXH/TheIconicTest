@@ -15,6 +15,8 @@ protocol Request {
     
     associatedtype ResponseType: Codable
     
+    var url: URL { get }
+    
     var baseUrl: String { get }
     var path: String { get }
     var queryItems: [String: String]? { get }
@@ -36,7 +38,7 @@ extension Request {
         var components = URLComponents()
         components.scheme = url.scheme
         components.host = url.host
-        components.path = "/" + path
+        components.path = path.count > 0 ? "/" + path : ""
         components.queryItems = queryItems?.map({
             URLQueryItem(name: $0, value: $1)
         })
