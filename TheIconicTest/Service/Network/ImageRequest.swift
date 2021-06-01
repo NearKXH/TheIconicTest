@@ -12,34 +12,35 @@ struct ImageNetwork: Request {
     
     typealias ResponseType = String
     
-    var baseUrl: String
-    var path: String
-    var queryItems: [String: String]?
+    let baseUrl: String
+    let path: String
+    let queryItems: [String: String]?
     var method: HTTPMethod = .GET
     
     var url: URL {
-        get { urlLink }
-        set { urlLink = newValue }
+        get { originalUrl }
     }
     
-    private var urlLink: URL
+    private var originalUrl: URL
     
     init?(url: String) {
         guard let urlLink = URL(string: url) else {
             fatalError("init(url:) has not been implemented. Invalid URL: \(url)")
         }
         
-        self.urlLink = urlLink
+        originalUrl = urlLink
         
         baseUrl = urlLink.baseURL?.absoluteString ?? ""
         path = urlLink.path
         
-        queryItems = [:]
+        var queryItems = [String: String]()
         let components = URLComponents(string: url)
         components?.queryItems?.forEach({ (query) in
             if let value = query.value {
-                queryItems?[query.name] = value
+                queryItems[query.name] = value
             }
         })
+        
+        self.queryItems = queryItems
     }
 }

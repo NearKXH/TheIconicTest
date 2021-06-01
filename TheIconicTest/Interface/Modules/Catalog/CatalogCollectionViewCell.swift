@@ -106,11 +106,17 @@ class CatalogCollectionViewCell: BaseCollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private var disposeBag: DisposeBag?
+    private var disposeBag: DisposeBag!
+    private var sku: String?
     
     func bind(_ productModel: CatalogProductVMModel) {
+        
+        guard sku?.count ?? 0 == 0 || productModel.sku != sku! else {
+            return
+        }
 
         disposeBag = DisposeBag()
+        sku = productModel.sku
         
         branchLabel.text = productModel.brandName
         nameLabel.text = productModel.name
@@ -122,15 +128,12 @@ class CatalogCollectionViewCell: BaseCollectionViewCell {
         
         productModel.imageObservable.asObservable().subscribe(onNext: { [unowned self] (image) in
             imageView.image = image
-        }).disposed(by: disposeBag!)
+        }).disposed(by: disposeBag)
         
         productModel.likeObservable.asDriver().asObservable().subscribe(onNext: { [unowned self] (like) in
             likeImageView.image = like ? UIImage(named: "Wishlist_Active") : UIImage(named: "Wishlist_Default")
-        }).disposed(by: disposeBag!)
+        }).disposed(by: disposeBag)
 
     }
     
-    override func prepareForReuse() {
-        disposeBag = nil
-    }
 }
