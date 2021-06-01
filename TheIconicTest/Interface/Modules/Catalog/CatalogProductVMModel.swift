@@ -58,5 +58,25 @@ class CatalogProductVMModel {
         
         imageUrl = product._embedded?.images?.first?.url ?? ""
         brandName = product._embedded?.brand?.name ?? ""
+        
+        // Like info should be saved in service and reviced by request
+        // Now use UserDefaults to simulate the storage situation
+        let like = UserDefaults.standard.bool(forKey: sku)
+        if like {
+            likeObservable.accept(true)
+        }
+        
+        var initObser = true
+        likeObservable.subscribe(onNext: { [unowned self] (like) in
+            guard initObser else {
+                // do not send request at init value
+                initObser = false
+                return
+            }
+            
+            UserDefaults.standard.setValue(like, forKey: sku)
+            UserDefaults.standard.synchronize()
+            
+        }).disposed(by: disposeBag)
     }
 }
