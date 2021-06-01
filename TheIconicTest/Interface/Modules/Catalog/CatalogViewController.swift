@@ -35,7 +35,6 @@ class CatalogViewController: BaseViewController {
         collectionView.refreshControl = refreshControl
         
         collectionView.register(CatalogCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        view.addSubview(collectionView)
         
         return collectionView
     }()
@@ -47,6 +46,8 @@ class CatalogViewController: BaseViewController {
         super.viewDidLoad()
 
         title = "THE ICONIC"
+        
+        view.addSubview(collectionView)
         
         // TODO: footer Refresh
         let headerRefresh = refreshControl.rx.controlEvent(.valueChanged).map({ RefreshBeginStatus.header }).startWith(.header)
@@ -72,7 +73,6 @@ class CatalogViewController: BaseViewController {
         collectionView.rx.modelSelected(CatalogProductVMModel.self).subscribe(onNext: { [unowned self] (product) in
             navigationController?.pushViewController(ProductDetailViewController(product: product), animated: true)
         }).disposed(by: disposeBag)
-        
         
     }
 }
