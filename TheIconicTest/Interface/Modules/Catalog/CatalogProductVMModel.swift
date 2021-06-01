@@ -45,6 +45,10 @@ class CatalogProductVMModel {
     
     let likeObservable = BehaviorRelay(value: false)
     
+    lazy var descriptionAttributedText: NSAttributedString? = {
+        return try? NSAttributedString(data: short_description.data(using: .utf8) ?? Data(), options: [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil)
+    }()
+    
     init(product: ProductModel) {
         sku = product.sku ?? ""
         final_price = String(format: "%.2f", product.final_sale ?? product.price ?? 0.0)
