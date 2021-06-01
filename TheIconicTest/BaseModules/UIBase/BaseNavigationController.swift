@@ -7,6 +7,8 @@
 
 import UIKit
 
+import RxSwift
+
 class BaseNavigationController: UINavigationController {
 
     override func viewDidLoad() {
@@ -15,7 +17,22 @@ class BaseNavigationController: UINavigationController {
         // Do any additional setup after loading the view.
     }
     
-
+    private let disposeBag = DisposeBag()
+    
+    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+        if viewControllers.count > 0 {
+            let image = UIImage(named: "Close_Arrow_Left")?.withRenderingMode(.alwaysOriginal)
+            let left = UIBarButtonItem(image: image, style: .plain, target: nil, action: nil)
+            left.rx.tap.asDriver().asObservable().subscribe(onNext: { [unowned self] in
+                self.popViewController(animated: true)
+            }).disposed(by: disposeBag)
+            
+            viewController.navigationItem.leftBarButtonItem = left
+        }
+        
+        super.pushViewController(viewController, animated: animated)
+    }
+    
     /*
     // MARK: - Navigation
 
