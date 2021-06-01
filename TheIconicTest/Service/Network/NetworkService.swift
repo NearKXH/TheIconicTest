@@ -11,7 +11,7 @@ import UIKit
 /// Base Network Service, implement the request
 ///
 /// This implement do not depend on any other framework
-class NetworkService: Service {
+class NetworkService: Service, Download {
     
     private let session: URLSession = {
         let configure = URLSessionConfiguration.default

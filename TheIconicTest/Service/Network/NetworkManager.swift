@@ -16,16 +16,20 @@ extension Request {
 /// Network Interface Protocol for application
 protocol NetworkInterface: Service {}
 
+/// Download Interface Protocol for application
+protocol DownloadInterface: Download {}
+
 /// Network Manager for application
-class NetworkManager: NSObject, NetworkInterface {
+class NetworkManager: NSObject, NetworkInterface, DownloadInterface {
     private let service = NetworkService()
+    private let imageService = ImageServiceManager.shared
     
     func request<E>(_ request: E, completion: @escaping (Result<E.ResponseType?, NetworkError>) -> Void) -> ServiceTask where E : Request {
         return service.request(request, completion: completion)
     }
     
     func downloadImage<E>(_ request: E, completion: @escaping (Result<UIImage?, NetworkError>) -> Void) -> ServiceTask where E : Request {
-        return service.downloadImage(request, completion: completion)
+        return imageService.downloadImage(request, completion: completion)
     }
     
     /// create a new Network Manager, not singleton
@@ -58,6 +62,9 @@ extension Reactive where Base: NetworkInterface {
             }
         }
     }
+}
+
+extension Reactive where Base: DownloadInterface {
     
     /// Rx Download Image
     /// - Parameter request: Request
