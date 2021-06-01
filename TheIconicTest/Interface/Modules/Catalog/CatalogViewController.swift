@@ -29,6 +29,8 @@ class CatalogViewController: BaseViewController {
         return refreshControl
     }()
     
+    private var footerEndRefresh: BehaviorRelay<RefreshEndStatus>!
+    
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: collectionLayout)
         collectionView.backgroundColor = UIColor.white
@@ -49,9 +51,11 @@ class CatalogViewController: BaseViewController {
         
         view.addSubview(collectionView)
         
-        // TODO: footer Refresh
+        let (footerBegin, footerEnd) = collectionView.rx.addFooter()
+        footerEndRefresh = footerEnd
+        
         let headerRefresh = refreshControl.rx.controlEvent(.valueChanged).map({ RefreshBeginStatus.header }).startWith(.header)
-        let refreshObservable = Observable.of(headerRefresh).merge().startWith(.header)
+        let refreshObservable = Observable.of(headerRefresh, footerBegin.asObservable()).merge().startWith(.header)
         
         vm = CatalogViewModel(input: CatalogViewModel.Input(refresh: refreshObservable))
         
@@ -61,13 +65,8 @@ class CatalogViewController: BaseViewController {
         }.disposed(by: disposeBag)
         
         vm.output.refresh.asObservable().subscribe(onNext: { [unowned self] (refresh) in
-            switch refresh {
-            // TODO: refresh
-            case .normal:
-                refreshControl.endRefreshing()
-            default:
-                refreshControl.endRefreshing()
-            }
+            footerEndRefresh.accept(refresh == .none ? .normal : refresh)
+            refreshControl.endRefreshing()
         }).disposed(by: disposeBag)
         
         collectionView.rx.modelSelected(CatalogProductVMModel.self).subscribe(onNext: { [unowned self] (product) in
