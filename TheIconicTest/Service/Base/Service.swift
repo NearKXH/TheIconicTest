@@ -8,8 +8,24 @@
 import Foundation
 import UIKit
 
-enum NetworkError: Error {
+enum NetworkError: Error, CustomStringConvertible, CustomDebugStringConvertible {
     case requestFailed(Error?)
+    
+    var description: String {
+        var description = ""
+        switch self {
+        case let .requestFailed(error):
+            if let error = error {
+                description = "requestFailed: \(error)"
+            } else {
+                description = "requestFailed with No error"
+            }
+        }
+        return description
+    }
+    
+    var debugDescription: String { return description }
+    
 }
 
 protocol ServiceTask {
