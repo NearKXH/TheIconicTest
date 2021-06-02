@@ -7,16 +7,19 @@ use_frameworks!
 
 target 'TheIconicTest' do
 
-pod 'RxSwift', '6.2.0'
-pod 'RxCocoa', '6.2.0'
+  pod 'RxSwift', '6.2.0'
+  pod 'RxCocoa', '6.2.0'
 
-pod 'RxRelay'
-pod 'RxBlocking'
+  pod 'RxRelay'
+  pod 'RxBlocking'
 
 end
 
 target 'TheIconicTestTests' do
 
-    pod 'RxTest'
+  pod 'RxSwift', '6.2.0'
+  pod 'RxCocoa', '6.2.0'
+
+  pod 'RxTest'
 
 end
