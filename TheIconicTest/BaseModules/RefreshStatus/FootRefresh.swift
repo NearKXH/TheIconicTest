@@ -22,7 +22,7 @@ class FooterRefresher: UIView {
         
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 9)
-        label.text = "- Drop Down for More -"
+        label.text = "- PULL UP FOR MORE -"
         label.textColor = .textColor
         label.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(label)
