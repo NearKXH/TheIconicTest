@@ -15,8 +15,8 @@ enum RefreshBeginStatus {
 }
 
 enum RefreshEndStatus {
-    case none
-    
     case normal
     case noMoreData
+    
+    case error(RefreshBeginStatus)
 }

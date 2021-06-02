@@ -86,7 +86,7 @@ class FooterRefresher: UIView {
     
     private var refreshStatus: FooterRefreshStatus = .normal
     let begin = BehaviorRelay<RefreshBeginStatus>(value: .none)
-    let end = BehaviorRelay<RefreshEndStatus>(value: .none)
+    let end = BehaviorRelay<RefreshEndStatus>(value: .normal)
     
     private let disposeBag = DisposeBag()
     
@@ -139,9 +139,12 @@ class FooterRefresher: UIView {
             }
         }).disposed(by: disposeBag)
         
-        end.asDriver(onErrorJustReturn: .none).asObservable().subscribe(onNext: { [unowned self] (refresh) in
-            if refresh != .none {
-                endRefresh(noMoreData: refresh == .noMoreData)
+        end.asDriver(onErrorJustReturn: .normal).asObservable().subscribe(onNext: { [unowned self] (refresh) in
+            switch refresh {
+            case .normal, .error(_):
+                endRefresh(noMoreData: false)
+            case .noMoreData:
+                endRefresh(noMoreData: true)
             }
         }).disposed(by: disposeBag)
     }
