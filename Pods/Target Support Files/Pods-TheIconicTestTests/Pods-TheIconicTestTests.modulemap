@@ -1,0 +1,6 @@
+framework module Pods_TheIconicTestTests {
+  umbrella header "Pods-TheIconicTestTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
