@@ -15,6 +15,7 @@
 		CA48BEF226663702009085DE /* ProductDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA48BEF126663702009085DE /* ProductDetailTableViewCell.swift */; };
 		CA48BEF726663702009085DE /* ImageServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA48BEF626663702009085DE /* ImageServiceManager.swift */; };
 		CA48BF0926663702009085DE /* FootRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA48BF0826663702009085DE /* FootRefresh.swift */; };
+		CA48BF4126673B6D009085DE /* CatalogViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA48BF2726672FFD009085DE /* CatalogViewModelTest.swift */; };
 		CA7DA37826653ED7005E4E5A /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7DA37726653ED7005E4E5A /* BaseCollectionViewCell.swift */; };
 		CA7DA37D26653EF7005E4E5A /* CatalogCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7DA37C26653EF7005E4E5A /* CatalogCollectionViewCell.swift */; };
 		CA7DA3A32665CBEB005E4E5A /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7DA3A22665CBEB005E4E5A /* ColorExtension.swift */; };
@@ -79,6 +80,7 @@
 		CA48BEF126663702009085DE /* ProductDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailTableViewCell.swift; sourceTree = "<group>"; };
 		CA48BEF626663702009085DE /* ImageServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageServiceManager.swift; sourceTree = "<group>"; };
 		CA48BF0826663702009085DE /* FootRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootRefresh.swift; sourceTree = "<group>"; };
+		CA48BF2726672FFD009085DE /* CatalogViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewModelTest.swift; sourceTree = "<group>"; };
 		CA7DA37726653ED7005E4E5A /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		CA7DA37C26653EF7005E4E5A /* CatalogCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogCollectionViewCell.swift; sourceTree = "<group>"; };
 		CA7DA3A22665CBEB005E4E5A /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 			children = (
 				CAA4ED33266482FD00BF0F7A /* TheIconicTestTests.swift */,
 				CAA4ED35266482FD00BF0F7A /* Info.plist */,
+				CA48BF2726672FFD009085DE /* CatalogViewModelTest.swift */,
 			);
 			path = TheIconicTestTests;
 			sourceTree = "<group>";
@@ -673,6 +676,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA48BF4126673B6D009085DE /* CatalogViewModelTest.swift in Sources */,
 				CAA4ED34266482FD00BF0F7A /* TheIconicTestTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
